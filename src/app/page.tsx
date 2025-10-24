@@ -1,7 +1,7 @@
 "use client";
 import Header from "@/Components/Header";
 import Image from "next/image";
-import banner from "../../public/33.jpg";
+import banner from "../../public/baner.jpg";
 import { useEffect, useState } from "react";
 import Content from "@/Components/Content";
 import Footer from "@/Components/Footer";

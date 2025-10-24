@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import { photos } from '@/utils/photos';
+import { mainPagePhotos } from '@/utils/photos';
 import { useState } from 'react';
 
 export default function PhotoGallery() {
@@ -14,7 +14,7 @@ export default function PhotoGallery() {
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4">
-        {photos.map((photo) => (
+        {mainPagePhotos.map((photo) => (
           <div 
             key={photo.id} 
             className="aspect-3/4 relative cursor-pointer"
