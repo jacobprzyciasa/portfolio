@@ -2,6 +2,7 @@
 import Header from "@/Components/Header";
 import Image from "next/image";
 import banner from "../../public/baner.jpg";
+import baner_mobile from "../../public/baner_mobile.jpg";
 import { useEffect, useState } from "react";
 import Content from "@/Components/Content";
 import Footer from "@/Components/Footer";
@@ -9,6 +10,7 @@ import Footer from "@/Components/Footer";
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +35,21 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const detectMobile = () => {
+      // Common breakpoint for mobile devices
+      const isSmallScreen = window.innerWidth < 768; 
+      setIsMobile(isSmallScreen);
+    };
+
+    detectMobile(); // Run once on mount
+
+    // Add event listener for resize to re-detect if screen size changes
+    window.addEventListener('resize', detectMobile);
+
+    return () => window.removeEventListener('resize', detectMobile);
+  }, []);
+
   return (
     <div className="relative">
       <Header isScrolled={isScrolled} />
@@ -40,7 +57,7 @@ export default function Home() {
         <div className="relative top-0 left-0 w-full h-screen -z-10 overflow-hidden">
           {/* <div className="absolute bg-gradient-to-b from-[#FFFFFF30] to-transparent w-full h-full"></div> */}
           <Image
-            src={banner}
+            src={isMobile ? baner_mobile : banner}
             alt="banner"
             className="relative w-full h-full object-cover -z-10"
             style={{ transform: `translateY(${scrollY * 0.5}px)` }}

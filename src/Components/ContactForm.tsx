@@ -42,7 +42,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-2/5'>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-5 xl:w-2/5 md:w-3/5 w-full'>
       <input type="email" name="email" placeholder="Email" required className='border border-black rounded-xs h-14 w-full font-volkhov text-black placeholder:text-[#898989] px-5' />
       <textarea name="message" placeholder="Message" required className='border border-black rounded-xs min-h-40 w-full font-volkhov text-black placeholder:text-[#898989] p-5' />
       <div className='w-full flex justify-end'>

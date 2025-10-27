@@ -1,10 +1,11 @@
 import React from 'react'
-import PhotoGallery from './PhotoGallerye'
+import PhotoGallery from './PhotoGallery'
+import { mainPagePhotos } from '@/utils/photos'
 
 function Content() {
   return (
     <div className='w-full'>
-        <PhotoGallery />
+        <PhotoGallery photoSet={mainPagePhotos} />
     </div>
   )
 }
