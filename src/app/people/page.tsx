@@ -1,9 +1,8 @@
 "use client";
-import Footer from "@/Components/Footer";
-import Header from "@/Components/Header";
-import PhotoOverview from "@/Components/PhotoOverview";
-import { peoplePhotos } from "@/utils/photos";
-import React from "react";
+import Footer from "@//Components/Footer";
+import Header from "@//Components/Header";
+import PhotoOverview from "@//Components/PhotoOverview";
+import { peoplePhotos } from "@//utils/photos";
 
 function Page() {
   return (

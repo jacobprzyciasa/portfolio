@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { mainPagePhotos, Photo } from "@/utils/photos";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function PhotoGallery({
   photoSet,
@@ -12,11 +12,19 @@ export default function PhotoGallery({
   setSlideShow?: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedPhotoId?: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  const [hoveredPhoto, setHoveredPhoto] = useState<number | null>(null);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [loadedPhotos, setLoadedPhotos] = useState<Set<number>>(new Set());
+  const [imageDelays, setImageDelays] = useState<Record<number, number>>({});
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setCursorPosition({ x: e.clientX, y: e.clientY });
+  useEffect(() => {
+    const delays: Record<number, number> = {};
+    photoSet.forEach(photo => {
+      delays[photo.id] = Math.random() * 200; // Random delay between 0 and 200ms
+    });
+    setImageDelays(delays);
+  }, [photoSet]);
+
+  const handleImageLoad = (id: number) => {
+    setLoadedPhotos((prev) => new Set(prev).add(id));
   };
 
   return (
@@ -26,28 +34,33 @@ export default function PhotoGallery({
           <div
             key={photo.id}
             className="aspect-3/4 relative cursor-pointer"
-            onMouseEnter={() => setHoveredPhoto(photo.id)}
-            onMouseLeave={() => setHoveredPhoto(null)}
-            onMouseMove={handleMouseMove}
           >
             {setSlideShow ? (
-              <button onClick={() => {setSelectedPhotoId!(photo.id); setSlideShow(true)}}>
+              <button onClick={() => {setSelectedPhotoId!(photo.id); setSlideShow(true)}} className="cursor-pointer">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  className="object-cover"
+                  className={`object-cover transition-opacity duration-500 ease-in ${
+                    loadedPhotos.has(photo.id) ? 'opacity-100' : 'opacity-0'
+                  }`}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  onLoadingComplete={() => handleImageLoad(photo.id)}
+                  style={{ transitionDelay: `${imageDelays[photo.id] || 0}ms` }}
                 />
               </button>
             ) : (
-              <a href={photo.category}>
+              <a href={photo.category} className="cursor-pointer">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  className="object-cover"
+                  className={`object-cover transition-opacity duration-500 ease-in ${
+                    loadedPhotos.has(photo.id) ? 'opacity-100' : 'opacity-0'
+                  }`}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  onLoadingComplete={() => handleImageLoad(photo.id)}
+                  style={{ transitionDelay: `${imageDelays[photo.id] || 0}ms` }}
                 />
               </a>
             )}

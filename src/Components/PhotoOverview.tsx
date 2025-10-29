@@ -76,7 +76,7 @@ function PhotoOverview({photosArray}: {photosArray: Photo[]}) {
         {/* Close button */}
         <button
           onClick={() => setSlideShow(false)}
-          className="absolute top-4 right-4 z-70 text-gray-700 hover:text-black transition-colors text-3xl font-light w-10 h-10 flex items-center justify-center"
+          className="absolute top-4 right-4 z-70 text-gray-700 hover:text-black transition-colors text-3xl font-light w-10 h-10 flex items-center justify-center cursor-pointer"
           aria-label="Close"
         >
           ×
@@ -92,7 +92,7 @@ function PhotoOverview({photosArray}: {photosArray: Photo[]}) {
                      bg-transparent hover:bg-white/50
                      rounded-full
                      transition-all duration-200
-                     group"
+                     group cursor-pointer"
           aria-label="Previous photo"
         >
           <RiArrowLeftWideFill className="text-3xl group-hover:scale-110 transition-transform" />
@@ -120,7 +120,7 @@ function PhotoOverview({photosArray}: {photosArray: Photo[]}) {
                      bg-transparent hover:bg-white/50
                      rounded-full
                      transition-all duration-200
-                     group"
+                     group cursor-pointer"
           aria-label="Next photo"
         >
           <RiArrowRightWideFill className="text-3xl group-hover:scale-110 transition-transform" />

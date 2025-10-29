@@ -4,7 +4,7 @@ import HamburgerMenu from "./Hamburger";
 
 function Header({isScrolled} : {isScrolled: boolean}) {
   return (
-    <header className={`flex justify-center items-center w-screen fixed top-0 left-0 z-30 transition-all duration-300 h-14 ${
+    <header className={`flex justify-center items-center w-full fixed top-0 left-0 z-30 transition-all duration-300 h-14 ${
         isScrolled 
           ? 'bg-[#FFFFFF] ' 
           : 'bg-transparent'

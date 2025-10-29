@@ -11,6 +11,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false); 
+  const [loadedBaner, setLoadedBaner] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,8 +60,11 @@ export default function Home() {
           <Image
             src={isMobile ? baner_mobile : banner}
             alt="banner"
-            className="relative w-full h-full object-cover -z-10"
+            className={`relative w-full h-full object-cover -z-10 transition-opacity duration-300 ease-in ${
+                    loadedBaner ? 'opacity-100' : 'opacity-0'
+                  }`}
             style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+            onLoadingComplete={() => setLoadedBaner(true)}
           />
         </div>
         <div className="absolute top-0 left-0 w-full flex justify-center items-center pt-12">
