@@ -67,7 +67,9 @@ export default function Home() {
             onLoadingComplete={() => setLoadedBaner(true)}
           />
         </div>
-        <div className="absolute top-0 left-0 w-full flex justify-center items-center pt-12">
+        <div className={`absolute top-0 left-0 w-full flex justify-center items-center pt-12 transition-opacity duration-300 ease-in ${
+                    loadedBaner ? 'opacity-100' : 'opacity-0'
+                  }`}>
           <h2
             className={`text-[#898989] text-xs font-volkhov ${
               isScrolled ? "opacity-0" : "opacity-100"
