@@ -12,21 +12,23 @@ export interface Categories {
 
 export const clients: Categories[] = [
     {
-        title: "Autodrom Sosnowiec",
-        src: AutodromSosnowiec,
-        url: "clients/autodrom-sosnowiec",
-        photoSet: peoplePhotos,
-    },
-    {
-        title: "Wynajmij Studio",
-        src: WynajmijStudio,
-        url: "clients/wynajmij-studio",
-        photoSet: peoplePhotos,
-    },
-    {
         title: "FD Studio",
         src: WynajmijStudio,
         url: "clients/fd-studio",
+        photoSet: peoplePhotos,
+    },
+    {
+        title: "Autodrom Sosnowiec",
+        src: AutodromSosnowiec,
+        url: "/clients/autodrom-sosnowiec",
+        photoSet: peoplePhotos,
+    },
+]
+
+export const events: Categories[] = [
+    {
+        title: "KONCERT PREMIEROWY MIŁOSZ SKIERSKI",
+        url: "events/koncert-premierowy-milosz-skierski",
         photoSet: peoplePhotos,
     },
 ]

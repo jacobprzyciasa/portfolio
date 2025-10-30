@@ -15,7 +15,7 @@ function Header({isScrolled} : {isScrolled: boolean}) {
       </h1>
       <ul className={`${isScrolled ? 'text-black' : 'text-white'} absolute 2xl:right-20 right-5 top-0 bottom-0 my-auto xl:flex hidden flex-row items-center gap-6 uppercase font-volkhov text-xs`}>
         <li className={`cursor-pointer ${isScrolled ? 'hover:text-[#00000050]' : 'hover:text-[#FFFFFF50]'} transition-all`}><a href="/people">people</a></li>
-        <li className={`cursor-pointer ${isScrolled ? 'hover:text-[#00000050]' : 'hover:text-[#FFFFFF50]'} transition-all`}><a href="/concerts">concerts</a></li>
+        <li className={`cursor-pointer ${isScrolled ? 'hover:text-[#00000050]' : 'hover:text-[#FFFFFF50]'} transition-all`}><a href="/events">events</a></li>
         <li className={`cursor-pointer ${isScrolled ? 'hover:text-[#00000050]' : 'hover:text-[#FFFFFF50]'} transition-all`}><a href="/cars">cars</a></li>
         <li className={`cursor-pointer ${isScrolled ? 'hover:text-[#00000050]' : 'hover:text-[#FFFFFF50]'} transition-all`}><a href="/places">places</a></li>
         <li className={`cursor-pointer ${isScrolled ? 'hover:text-[#00000050]' : 'hover:text-[#FFFFFF50]'} transition-all`}><a href="/clients">clients</a></li>

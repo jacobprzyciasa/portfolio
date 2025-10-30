@@ -6,7 +6,9 @@ function Footer() {
   return (
     <div className='w-full bg-white flex flex-col justify-center items-center mt-40 mb-10 px-5'>
         <p className='font-volkhov text-black text-lg mb-10 text-center'>If you want to collaborate, feel&nbsp;free&nbsp;to&nbsp;hit&nbsp;me&nbsp;up!</p>
-        <ContactForm />
+        <div className='xl:w-2/5 md:w-3/5 w-full'>
+          <ContactForm />
+        </div>
         <a href='https://www.instagram.com/jacobprzyciasa' target='_blank' className='flex flex-row justify-center items-center mt-10 gap-2 transition-all text-black hover:text-[#00000050]'>
           <p className='font-volkhov text-xs'>Follow me:</p>
           <FaInstagram />
