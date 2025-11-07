@@ -10,6 +10,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { clients } from "@/utils/categories";
 import { toast } from "sonner";
 import { login } from "./actions";
+import InfiniteCarousel from "@/Components/Carousel";
 
 export interface passwordScreenInterface {
   state: boolean,
@@ -24,6 +25,7 @@ function page() {
     <div className="pt-40">
       <Header isScrolled={true} />
       <h2 className="font-volkhov py-5 text-2xl md:pl-40 pl-5">Clients</h2>
+      <InfiniteCarousel />
       <PhotosCategories content={clients} type="clients" setPasswordScreen={setPasswordScreen} />
       <Footer />
       <div
