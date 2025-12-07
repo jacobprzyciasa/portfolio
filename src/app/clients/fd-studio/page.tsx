@@ -5,6 +5,7 @@ import PhotoOverview from "@/Components/PhotoOverview";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import CaseStudyHeader from "@/Components/CaseStudyHeader";
+import ScrollToTop from "@/Components/ScrollToTop";
 
 async function Page() {
   const supabase = await createClient();
@@ -17,6 +18,8 @@ async function Page() {
   }
 
   return (
+    <>
+    <ScrollToTop />
     <div className="pt-40">
       <CaseStudyHeader />
       <h2 className="font-volkhov py-5 text-2xl md:pl-40 pl-5">
@@ -25,6 +28,7 @@ async function Page() {
       <PhotoOverview photosArray={clients[0].photoSet} />
       <Footer />
     </div>
+    </>
   );
 }
 

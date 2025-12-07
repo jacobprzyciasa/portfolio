@@ -14,7 +14,7 @@ export const clients: Categories[] = [
     {
         title: "FD Studio",
         src: WynajmijStudio,
-        url: "clients/fd-studio",
+        url: "/clients/fd-studio",
         photoSet: peoplePhotos,
     },
     {
@@ -28,7 +28,7 @@ export const clients: Categories[] = [
 export const events: Categories[] = [
     {
         title: "KONCERT PREMIEROWY MIŁOSZ SKIERSKI",
-        url: "events/koncert-premierowy-milosz-skierski",
+        url: "/events/koncert-premierowy-milosz-skierski",
         photoSet: peoplePhotos,
     },
 ]
