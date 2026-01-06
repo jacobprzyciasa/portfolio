@@ -23,9 +23,9 @@ async function Page() {
     <div className="pt-40">
       <CaseStudyHeader />
       <h2 className="font-volkhov py-5 text-2xl md:pl-40 pl-5">
-        {clients[1].title}
+        {clients[0].title}
       </h2>
-      <PhotoOverview photosArray={clients[1].photoSet} />
+      <PhotoOverview photosArray={clients[0].photoSet} />
       <Footer />
     </div>
     </>

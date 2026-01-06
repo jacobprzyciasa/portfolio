@@ -14,7 +14,7 @@ function CategoryTile({category, type, setPasswordScreen}: {category: Categories
 
         <div className='relative w-full h-full flex justify-center items-center'>
             <Image
-              src={category.photoSet[5].src}
+              src={category.coverPhoto}
               alt={category.title}
               className="relative w-full object-center object-cover"
               onLoadingComplete={() => setLoadedBaner(true)}

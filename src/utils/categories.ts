@@ -1,27 +1,22 @@
 import { StaticImageData } from "next/image";
 import { peoplePhotos, Photo } from "./photos";
-import AutodromSosnowiec from "../../public/Categories/AutodromSosnowiecLogo.png"
-import WynajmijStudio from "../../public/Categories/WynajmijStudioLogo.jpg"
+import { autodromSosnowiecPhotos } from "./clients/autodrom_sosnowiec"
+import { miloszSkierskiPhotos } from "./milosz_skierski"
+import { FDStudioPhotos } from "./fd_studio";
 
 export interface Categories {
     title: string;
-    src?: StaticImageData;
     url: string;
     photoSet: Photo[];
+    coverPhoto: StaticImageData;
 }
 
 export const clients: Categories[] = [
     {
-        title: "FD Studio",
-        src: WynajmijStudio,
-        url: "/clients/fd-studio",
-        photoSet: peoplePhotos,
-    },
-    {
         title: "Autodrom Sosnowiec",
-        src: AutodromSosnowiec,
         url: "/clients/autodrom-sosnowiec",
-        photoSet: peoplePhotos,
+        photoSet: autodromSosnowiecPhotos,
+        coverPhoto: autodromSosnowiecPhotos[3].src,
     },
 ]
 
@@ -29,6 +24,13 @@ export const events: Categories[] = [
     {
         title: "KONCERT PREMIEROWY MIŁOSZ SKIERSKI",
         url: "/events/koncert-premierowy-milosz-skierski",
-        photoSet: peoplePhotos,
+        photoSet: miloszSkierskiPhotos,
+        coverPhoto: miloszSkierskiPhotos[29].src,
+    },
+    {
+        title: "FD Studio",
+        url: "/events/fd-studio",
+        photoSet: FDStudioPhotos,
+        coverPhoto: FDStudioPhotos[0].src,
     },
 ]

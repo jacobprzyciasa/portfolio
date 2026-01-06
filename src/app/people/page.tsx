@@ -2,7 +2,7 @@
 import Footer from "@//Components/Footer";
 import Header from "@//Components/Header";
 import PhotoOverview from "@//Components/PhotoOverview";
-import { peoplePhotos } from "@//utils/photos";
+import { peoplePhotos } from "@//utils/people";
 
 function Page() {
   return (
