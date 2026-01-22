@@ -41,7 +41,7 @@ function page() {
           }`}
           onLoadingComplete={() => setLoadedBaner(true)}
         />
-        <div className="absolute w-full h-full top-0 left-0 bg-[#00000050] flex justify-center items-center">
+        <div className="absolute w-full h-full top-0 left-0 bg-[#00000050] flex flex-col justify-center items-center">
           <button
             className="text-xs text-white hover:text-[#FFFFFF50] font-volkhov uppercase cursor-pointer transition-all absolute top-10 left-10"
             onClick={() => setPasswordScreen({state: false, route: ""})}
@@ -64,6 +64,7 @@ function page() {
               <FaArrowRight className="text-2xl" />
             </button>
           </form>
+          <p className="font-volkhov text-white absolute m-auto left-0 right-0 bottom-10 text-center">If you have any problems logging in, please contact me.</p>
         </div>
       </div>
     </div>

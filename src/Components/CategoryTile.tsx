@@ -16,7 +16,7 @@ function CategoryTile({category, type, setPasswordScreen}: {category: Categories
             <Image
               src={category.coverPhoto}
               alt={category.title}
-              className="relative w-full object-center object-cover"
+              className="relative w-full h-full object-cover"
               onLoadingComplete={() => setLoadedBaner(true)}
             />
             <div className='bg-linear-to-t sm:from-[#00000080] from-[#000000ce] to-transparent absolute top-0 left-0 w-full h-full'></div>
