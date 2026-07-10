@@ -33,4 +33,10 @@ export const events: Categories[] = [
         photoSet: FDStudioPhotos,
         coverPhoto: FDStudioPhotos[0].src,
     },
+    {
+        title: "Bailla Party",
+        url: "/events/bailla-party",
+        photoSet: 
+        coverPhoto:
+    }
 ]

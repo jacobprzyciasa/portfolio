@@ -75,7 +75,7 @@ export default function Home() {
               isScrolled ? "opacity-0" : "opacity-100"
             }`}
           >
-            Photographer
+            Photographer & film
           </h2>
         </div>
         <Content />
