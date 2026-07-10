@@ -1,15 +1,18 @@
 import Footer from '@/Components/Footer'
 import Header from '@/Components/Header'
 import PhotoOverview from '@/Components/PhotoOverview'
-import { carsPhotos } from '@/utils/cars'
+import { getPhotosFromFolder } from '@/utils/gallery'
 import React from 'react'
 
 function page() {
   return (
-    <div className="pt-40">
+    <div className="min-h-screen bg-obsidian pt-32 text-linen md:pt-40">
       <Header isScrolled={true} />
-      <h2 className="font-volkhov py-5 text-2xl md:pl-40 pl-5">Cars</h2>
-      <PhotoOverview photosArray={carsPhotos} />
+      <div className="px-5 pb-8 md:px-10">
+        <p className="font-body text-[10px] uppercase tracking-mega text-flare">/ Archive</p>
+        <h2 className="font-heading py-3 text-5xl uppercase leading-none md:text-7xl">Cars</h2>
+      </div>
+      <PhotoOverview photosArray={getPhotosFromFolder("cars", "Car photo")} />
       <Footer />
     </div>
   )

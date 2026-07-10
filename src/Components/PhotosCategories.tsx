@@ -1,14 +1,12 @@
-import { Categories, clients } from "@/utils/categories";
 import React from "react";
-import { Dispatch, SetStateAction } from "react";
 import CategoryTile from "./CategoryTile";
-import { passwordScreenInterface } from "@/app/clients/page";
+import type { Category } from "@/utils/gallery";
 
-function PhotosCategories({content, type, setPasswordScreen}: {content: Categories[], type: "events" | "clients", setPasswordScreen?: Dispatch<SetStateAction<passwordScreenInterface>>}) {
+function PhotosCategories({content, type}: {content: Category[], type: "events" | "clients"}) {
   return (
-    <div className="w-full flex flex-col gap-52">
+    <div className="flex w-full flex-col gap-8 px-2 md:gap-10">
           {content.map((item, id) => (
-            <CategoryTile key={id} category={item} type={type} setPasswordScreen={setPasswordScreen} />
+            <CategoryTile key={id} category={item} type={type} />
           ))}
     </div>
   );

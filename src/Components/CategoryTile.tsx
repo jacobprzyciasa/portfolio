@@ -1,14 +1,15 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import { useState, Dispatch, SetStateAction } from 'react';
-import { Categories } from '@/utils/categories'
-import { passwordScreenInterface } from '@/app/clients/page';
+import { useState } from 'react';
+import type { Category } from '@/utils/gallery'
 
-function CategoryTile({category, type, setPasswordScreen}: {category: Categories, type: "events" | "clients", setPasswordScreen?: Dispatch<SetStateAction<passwordScreenInterface>>}) {
+function CategoryTile({category, type}: {category: Category, type: "events" | "clients"}) {
     const [loadedBaner, setLoadedBaner] = useState(false);
+    const buttonLabel = type === "events" ? "See The Show" : "See Case Study";
+
   return (
-     <div className={`relative w-full h-120 overflow-hidden transition-opacity duration-300 ease-in ${
+     <div className={`portfolio-reveal relative h-[70svh] min-h-[420px] w-full overflow-hidden transition-opacity duration-500 ease-in ${
                     loadedBaner ? 'opacity-100' : 'opacity-0'
                   }`}>
 
@@ -16,20 +17,23 @@ function CategoryTile({category, type, setPasswordScreen}: {category: Categories
             <Image
               src={category.coverPhoto}
               alt={category.title}
-              className="relative w-full h-full object-cover"
+              fill
+              sizes="100vw"
+              className="object-cover"
               onLoadingComplete={() => setLoadedBaner(true)}
             />
-            <div className='bg-linear-to-t sm:from-[#00000080] from-[#000000ce] to-transparent absolute top-0 left-0 w-full h-full'></div>
+            <div className='absolute left-0 top-0 h-full w-full bg-gradient-to-t from-obsidian via-obsidian/25 to-transparent'></div>
         </div>
 
-      <div className='absolute right-0 bottom-0 w-full sm:p-10 p-5'>
-          <h2 className="sm:text-3xl text-xl font-bold font-volkhov mb-10 w-full text-left text-white">{category.title}</h2>
+      <div className='absolute bottom-0 right-0 w-full p-5 sm:p-10'>
+          <p className="mb-3 font-body text-[10px] uppercase tracking-mega text-flare">
+            {type === "events" ? "/ Event" : "/ Client"}
+          </p>
+          <h2 className="mb-10 w-full text-left font-heading text-5xl uppercase leading-none text-linen sm:text-7xl">{category.title}</h2>
           <div className='w-full flex justify-end'>
-            {type === "events" ? <a href={category.url} className='bg-white hover:bg-[#FFFFFF90] flex justify-center items-center transition-all rounded-xs h-14 w-40 font-volkhov text-black uppercase cursor-pointer'>
-              See The Show
-            </a> : <button onClick={setPasswordScreen ? () => setPasswordScreen({state: true, route: category.url}) : undefined} className='bg-white hover:bg-[#FFFFFF90] flex justify-center items-center transition-all rounded-xs h-14 w-40 font-volkhov text-black uppercase cursor-pointer'>
-              See Case Study
-            </button>}
+            <a href={category.url} data-cursor="viewfinder" data-cursor-label="OPEN" className='flex h-14 w-44 cursor-pointer items-center justify-center bg-flare text-center font-heading text-base uppercase tracking-wide text-obsidian transition-all hover:bg-linen'>
+              {buttonLabel}
+            </a>
           </div>
       </div>
     </div>

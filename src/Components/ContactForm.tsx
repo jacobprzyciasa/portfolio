@@ -42,15 +42,15 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-full'>
-      <input type="email" name="email" placeholder="Email" required className='border border-black rounded-xs h-14 w-full font-volkhov text-black placeholder:text-[#898989] px-5' />
-      <textarea name="message" placeholder="Message" required className='border border-black rounded-xs min-h-40 w-full font-volkhov text-black placeholder:text-[#898989] p-5' />
+    <form onSubmit={handleSubmit} className='flex w-full flex-col gap-5'>
+      <input type="email" name="email" placeholder="Email" required className='h-14 w-full border border-linen/20 bg-obsidian px-5 font-body text-sm text-linen placeholder:text-khaki outline-none transition-colors focus:border-flare' />
+      <textarea name="message" placeholder="Message" required className='min-h-40 w-full border border-linen/20 bg-obsidian p-5 font-body text-sm text-linen placeholder:text-khaki outline-none transition-colors focus:border-flare' />
       <div className='w-full flex justify-end'>
-        <button type="submit" disabled={loading} className='bg-black hover:bg-[#00000090] transition-all rounded-xs h-14 w-40 font-volkhov text-white uppercase cursor-pointer'>
+        <button type="submit" disabled={loading} className='h-14 w-40 cursor-pointer bg-flare font-heading text-base uppercase tracking-wide text-obsidian transition-all hover:bg-linen disabled:cursor-wait disabled:opacity-70'>
           {loading ? 'Sending...' : 'Send'}
         </button>
       </div>
-      {status && <p>{status}</p>}
+      {status && <p className="font-body text-xs text-khaki">{status}</p>}
     </form>
   );
 }

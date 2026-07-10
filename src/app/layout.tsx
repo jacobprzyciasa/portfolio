@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EB_Garamond, League_Spartan, Volkhov } from "next/font/google";
+import { Anton, Archivo, EB_Garamond, IBM_Plex_Mono, League_Spartan, Volkhov } from "next/font/google";
 import { Toaster } from "@/Components/ui/sonner"
 import "./globals.css";
 
@@ -21,6 +21,24 @@ const volkhov = Volkhov({
   variable: "--font-volkhov",
 });
 
+const anton = Anton({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-body",
+});
+
+const archivo = Archivo({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-sans-portfolio",
+});
+
 export const metadata: Metadata = {
   title: "JAKUB PRZYCIASA",
   description: "Hi, I'm Jakub. Come and check out my work!",
@@ -34,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${garamond.variable} ${league_spartan.variable} ${volkhov.variable} antialiased`}
+        className={`${garamond.variable} ${league_spartan.variable} ${volkhov.variable} ${anton.variable} ${ibmPlexMono.variable} ${archivo.variable} antialiased`}
       >
         {children}
         <Toaster />

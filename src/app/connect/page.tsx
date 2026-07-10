@@ -1,32 +1,52 @@
 "use client";
+
 import ContactForm from "@/Components/ContactForm";
 import Header from "@/Components/Header";
-import React from "react";
-import { useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 
-function page() {
-  const [loadedBaner, setLoadedBaner] = useState(false);
+function Page() {
   return (
-    <div className="pt-40">
+    <div className="min-h-screen bg-obsidian pt-32 text-linen md:pt-40">
       <Header isScrolled={true} />
-      <h2 className="font-volkhov py-5 text-2xl md:pl-40 pl-5">Connect</h2>
-      <div className="flex xl:flex-row flex-col md:px-40 px-5 gap-20">
-        <div className="font-volkhov py-5 text-sm w-full">If you want me to help you with your project, or you just want a photoshoot for yourself, feel free to hit me up and let's talk about your idea together. I'll be glad to help you!<br /><br />You can use form on this site or write on my email. You can also contact me via instagram.<br /><br />Email:<br />jakubprzyciasa@gmail.com<br /><br />Instagram:<br /><a href="https://www.instagram.com/jacobprzyciasa" target="_blank">@jacobprzyciasa</a></div>
-        <div className="w-full">
+      <section className="mx-auto grid max-w-[1300px] gap-10 px-5 pb-24 md:grid-cols-[0.9fr_1.1fr] md:px-10">
+        <div>
+          <p className="font-body text-[10px] uppercase tracking-mega text-flare">/ Connect</p>
+          <h1 className="mt-3 font-heading text-6xl uppercase leading-[0.9] text-linen md:text-8xl">
+            Tell me
+            <br />
+            the story.
+          </h1>
+          <div className="mt-8 max-w-xl font-body text-sm leading-relaxed text-khaki md:text-base">
+            If you want me to help you with your project, or you just want a
+            photoshoot for yourself, feel free to hit me up and let&apos;s talk about
+            your idea together.
+            <br />
+            <br />
+            Email:
+            <br />
+            <a className="text-linen transition-colors hover:text-flare" href="mailto:jakubprzyciasa@gmail.com">
+              jakubprzyciasa@gmail.com
+            </a>
+            <br />
+            <br />
+            Instagram:
+            <br />
+            <a
+              className="inline-flex items-center gap-2 text-linen transition-colors hover:text-flare"
+              href="https://www.instagram.com/jacobprzyciasa"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @jacobprzyciasa <FaInstagram />
+            </a>
+          </div>
+        </div>
+        <div className="self-end">
           <ContactForm />
         </div>
-      </div>
-      <a
-        href="https://www.instagram.com/jacobprzyciasa"
-        target="_blank"
-        className="flex flex-row justify-center items-center my-10 gap-2 transition-all text-black hover:text-[#00000050]"
-      >
-        <p className="font-volkhov text-xs">Follow me:</p>
-        <FaInstagram />
-      </a>
+      </section>
     </div>
   );
 }
 
-export default page;
+export default Page;
