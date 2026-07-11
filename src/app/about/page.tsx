@@ -20,7 +20,7 @@ function Page() {
         <div className="relative min-h-[520px] overflow-hidden md:col-span-5">
           <Image
             src={baner_me}
-            alt="Jakub Przyciasa"
+            alt="Jacob Przyciasa"
             fill
             sizes="(max-width: 768px) 100vw, 40vw"
             className="object-cover object-[center_20%] grayscale-[15%]"

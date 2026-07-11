@@ -22,7 +22,7 @@ export default function ShutterReveal() {
   return (
     <div className="portfolio-shutter" aria-hidden="true">
       <div className="portfolio-shutter__panel portfolio-shutter__panel--left">
-        <span>Jakub</span>
+        <span>Jacob</span>
       </div>
       <div className="portfolio-shutter__panel portfolio-shutter__panel--right">
         <span>Przyciasa</span>

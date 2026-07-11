@@ -107,7 +107,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
 
           <div className="portfolio-hero-copy">
             <h1 className="font-heading uppercase leading-[0.82] text-linen">
-              Jakub
+              Jacob
               <br />
               <span className="text-stroke">Przyciasa</span>
             </h1>

@@ -40,7 +40,7 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "JAKUB PRZYCIASA",
+  title: "JACOB PRZYCIASA",
   description: "Come and check out my work!",
 };
 

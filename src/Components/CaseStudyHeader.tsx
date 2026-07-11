@@ -16,7 +16,7 @@ function CaseStudyHeader() {
           </button>
         </form>
         <h1 className="text-black font-bold text-xl font-volkhov italic">
-        Jakub Przyciasa
+        Jacob Przyciasa
       </h1>
       </div>
   )
