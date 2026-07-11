@@ -18,11 +18,11 @@ export default function Footer() {
           <h2 className="font-heading text-5xl uppercase leading-[0.9] text-linen md:text-7xl">
             Let&apos;s make
             <br />
-            the frame.
+            some shots.
           </h2>
           <p className="mt-6 max-w-md font-body text-sm leading-relaxed text-khaki">
             If you want to collaborate, need a photoshoot, or want to build a visual
-            story around your project, send a message.
+            story around your project, hit me up.
           </p>
           <a
             href="https://www.instagram.com/jacobprzyciasa"

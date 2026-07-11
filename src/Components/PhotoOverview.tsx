@@ -83,7 +83,7 @@ function PhotoOverview({ photosArray }: { photosArray: Photo[] }) {
           {/* Close button */}
           <button
             onClick={() => setSlideShow(false)}
-            className="absolute right-5 top-5 z-70 flex h-11 w-11 cursor-pointer items-center justify-center border border-linen/30 text-3xl font-light text-linen transition-colors hover:border-flare hover:bg-flare hover:text-obsidian"
+            className="absolute pb-1 right-5 top-5 z-70 flex h-11 w-11 cursor-pointer items-center justify-center border border-linen/30 text-3xl font-light text-linen transition-colors hover:border-flare hover:bg-flare hover:text-obsidian"
             aria-label="Close"
           >
             ×

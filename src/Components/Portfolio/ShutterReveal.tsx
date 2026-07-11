@@ -22,10 +22,10 @@ export default function ShutterReveal() {
   return (
     <div className="portfolio-shutter" aria-hidden="true">
       <div className="portfolio-shutter__panel portfolio-shutter__panel--left">
-        <span>REC</span>
+        <span>Jakub</span>
       </div>
       <div className="portfolio-shutter__panel portfolio-shutter__panel--right">
-        <span>ISO 400 / F2.8</span>
+        <span>Przyciasa</span>
       </div>
     </div>
   );

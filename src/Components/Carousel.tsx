@@ -2,10 +2,11 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import autodrom from "../../public/Categories/AutodromSosnowiecLogo.png";
-import wynajmijstudio from "../../public/Categories/WynajmijStudioLogo.jpg";
+import wynajmijstudio from "../../public/Categories/WynajmijStudioLogo.png";
 import fdstudio from "../../public/Categories/FdStudio.png";
+import starway from "../../public/Categories/starway.png";
 
-const images = [autodrom, wynajmijstudio, fdstudio];
+const images = [autodrom, wynajmijstudio, fdstudio, starway];
 
 export default function InfiniteCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -66,7 +67,7 @@ export default function InfiniteCarousel() {
               src={src}
               alt={`Carousel image ${i + 1}`}
               fill
-              className={`object-contain grayscale w-full ${i == 2 && 'invert'}`}
+              className={`object-contain w-full brightness-100 ${i == 1 && ' '}`}
             />
           </div>
         ))}

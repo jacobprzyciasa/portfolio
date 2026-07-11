@@ -10,6 +10,8 @@ import CustomCursor from "./CustomCursor";
 import Marquee from "./Marquee";
 import ShutterReveal from "./ShutterReveal";
 import SiteNav from "./SiteNav";
+import me from "../../../public/me.jpg"
+import hero from "../../../public/baner.jpg"
 
 const CATEGORY_LABELS: Record<string, string> = {
   "/people": "People",
@@ -70,8 +72,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
     [filter, photos]
   );
 
-  const heroImage = photos[0]?.src ?? "/baner.jpg";
-  const aboutImage = photos[6]?.src ?? "/baner_me.jpg";
+  const heroImage = hero ?? "/baner.jpg";
+  const aboutImage = me ?? "/me.jpg";
 
   return (
     <main id="top" className="portfolio-shell grain min-h-screen bg-obsidian text-linen">
@@ -86,7 +88,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
         >
           <Image
             src={heroImage}
-            alt="Jakub Przyciasa portfolio hero photograph"
+            alt="Jakub Przyciasa portfolio hero photo"
             fill
             priority
             sizes="100vw"
@@ -99,10 +101,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
           className="relative z-10 flex h-full flex-col justify-between p-6 transition-opacity duration-300 md:p-10"
           style={{ opacity: Math.max(0, 1 - scrollY / 760) }}
         >
-          <div className="flex justify-between font-body text-[10px] uppercase tracking-mega text-khaki">
-            <span>Portfolio / Est. 2014</span>
-            <span className="hidden sm:block">Krakow / Worldwide</span>
-            <span>REC</span>
+          <div className="flex justify-center font-body text-[10px] uppercase tracking-mega text-khaki">
+            <span className="hidden sm:block">Kraków / Worldwide</span>
           </div>
 
           <div className="portfolio-hero-copy">
@@ -112,8 +112,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
               <span className="text-stroke">Przyciasa</span>
             </h1>
             <p className="mt-5 max-w-md font-body text-xs leading-relaxed text-khaki md:text-sm">
-              Photographer and filmmaker building cinematic frames around people, events,
-              cars, places and brands.
+              Dive into my world with magnificent shots and works that are full of incredible stories.
             </p>
           </div>
 
@@ -125,7 +124,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
               className="group flex items-center gap-4 font-body text-[11px] uppercase tracking-mega text-linen"
             >
               <span className="flex h-14 w-14 items-center justify-center rounded-full border border-linen/40 transition-all duration-300 group-hover:border-flare group-hover:bg-flare">
-                <span className="block h-2.5 w-2.5 rotate-45 border-b-2 border-r-2 border-linen transition-colors group-hover:border-obsidian" />
+                <span className="block relative -top-0.5 h-2.5 w-2.5 rotate-45 border-b-2 border-r-2 border-linen transition-colors group-hover:border-obsidian" />
               </span>
               Enter the archive
             </a>
@@ -139,9 +138,9 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
       <div className="border-y border-linen/10 bg-flare py-4 text-obsidian">
         <Marquee speed={28}>
           <span className="flex items-center">
-            {["Available for commissions", "People", "Events", "Cars", "Places", "Clients"].map((label) => (
+            {["Creativity", "Story", "Passion", "Work", "Build", "Art"].map((label) => (
               <span key={label} className="flex items-center">
-                <span className="px-6 font-heading text-lg uppercase tracking-wide">{label}</span>
+                <span className="px-20 font-heading text-lg uppercase tracking-wide">{label}</span>
                 <span className="text-2xl">/</span>
               </span>
             ))}
@@ -240,26 +239,18 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
 
           <div className="flex flex-col justify-center md:col-span-7">
             <p className="mb-4 font-body text-[10px] uppercase tracking-mega text-flare">/ About</p>
-            <h2 className="font-heading text-4xl uppercase leading-[0.9] text-linen md:text-7xl">
-              Chasing light
-              <br />
-              through the noise.
-            </h2>
             <p className="mt-6 max-w-xl font-body text-sm leading-relaxed text-khaki">
-              I create photo and film stories for people, events, cars, places and
-              commercial projects. The frame matters, but so does the atmosphere around
-              it: natural movement, honest light and a clear visual rhythm.
+              Hi, I&apos;m Jacob and I am photographer from Poland. Since the age of 15, I have been creating photos that reflect my style, tell stories and help others in their various projects. I have completed a professional portrait photography course and have been awarded in local and international photography competitions. In my photography journey I had a pleasure to work with firms like Autodrom Sosnowiec, FD Studio, Starway Studio and many others.
             </p>
             <p className="mt-4 max-w-xl font-body text-sm leading-relaxed text-khaki">
-              Available for individual sessions, event coverage, automotive shoots and
-              brand collaborations.
+              If you need the highest quality shots for an event, project or just for fun, feel free to contact me. Together, we will create amazing things!
             </p>
 
             <div className="mt-10 grid grid-cols-2 gap-6 border-t border-linen/10 pt-8 sm:grid-cols-4">
               {[
-                ["12+", "Years behind the lens"],
-                ["240", "Delivered stories"],
-                ["5", "Portfolio worlds"],
+                ["6+", "Years behind the lens"],
+                ["50+", "Delivered stories"],
+                ["Every", "Happy clients"],
                 ["∞", "Frames captured"],
               ].map(([value, label]) => (
                 <div key={label} className="portfolio-stat">
@@ -283,7 +274,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
 
         <div className="relative mx-auto flex max-w-[1600px] flex-col items-center px-5 text-center md:px-10">
           <p className="mb-4 font-body text-[10px] uppercase tracking-mega text-flare">
-            / Available for commissions
+            / Ready to shoot
           </p>
           <h2 className="font-heading uppercase leading-[0.85] text-linen text-[clamp(3rem,11vw,12rem)]">
             Got a story
@@ -292,8 +283,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
           </h2>
 
           <p className="mt-8 max-w-lg font-body text-sm leading-relaxed text-khaki">
-            Whether it is a campaign, a concert, a car or a portrait session, let us
-            build something with weight.
+            Whether it is a campaign, a concert, a whip or a portrait session, let&apos;s
+            build something with quality.
           </p>
 
           <Link

@@ -41,7 +41,7 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: "JAKUB PRZYCIASA",
-  description: "Hi, I'm Jakub. Come and check out my work!",
+  description: "Come and check out my work!",
 };
 
 export default function RootLayout({

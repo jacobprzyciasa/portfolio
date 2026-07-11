@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useState } from "react";
+import logo_linen from "../../../public/jp_linen.png"
 
 const LINKS = [
   { label: "Work", href: "/#gallery", image: "/home/3.jpg" },
@@ -12,7 +13,7 @@ const LINKS = [
   { label: "Cars", href: "/cars", image: "/cars/1.jpg" },
   { label: "Places", href: "/places", image: "/places/1.jpg" },
   { label: "Clients", href: "/clients", image: "/clients/Autodrom_Sosnowiec/banner_1.jpg" },
-  { label: "Contact", href: "/connect", image: "/home/12.jpg" },
+  { label: "Contact", href: "/connect", image: "/me.jpg" },
 ];
 
 export default function SiteNav({ solid = false }: { solid?: boolean }) {
@@ -27,7 +28,11 @@ export default function SiteNav({ solid = false }: { solid?: boolean }) {
         }`}
       >
         <Link href="/" className="font-heading text-xl uppercase tracking-mega text-linen">
-          J.<span className="text-flare">P</span>
+          <Image
+            src={logo_linen}
+            alt="Logo"
+            className="w-10"
+          />
         </Link>
         <button
           onClick={() => setOpen(true)}
@@ -57,7 +62,7 @@ export default function SiteNav({ solid = false }: { solid?: boolean }) {
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center border border-linen/30 text-linen transition-colors hover:border-flare hover:bg-flare hover:text-obsidian md:right-8 md:top-8"
+            className="absolute right-5 top-5 z-40 flex h-11 w-11 items-center justify-center border border-linen/30 text-linen transition-colors hover:border-flare hover:bg-flare hover:text-obsidian md:right-8 md:top-8"
           >
             <X size={18} />
           </button>
