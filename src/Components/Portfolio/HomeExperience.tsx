@@ -197,6 +197,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
                     src={photo.src}
                     alt={photo.alt}
                     fill
+                    loading={index === 0 ? "eager" : "lazy"}
+                    unoptimized
                     sizes="(max-width: 768px) 50vw, 60vw"
                     className="object-cover grayscale-[25%] brightness-90 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
                   />
