@@ -14,8 +14,18 @@ export interface Category {
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
-function toPublicUrl(filePath: string) {
-  return `/${path.relative(PUBLIC_DIR, filePath).split(path.sep).join("/")}`;
+function toPublicUrl(filePath: string, versioned = false) {
+  const publicUrl = `/${path.relative(PUBLIC_DIR, filePath).split(path.sep).join("/")}`;
+
+  if (!versioned) {
+    return publicUrl;
+  }
+
+  try {
+    return `${publicUrl}?v=${Math.trunc(fs.statSync(filePath).mtimeMs)}`;
+  } catch {
+    return publicUrl;
+  }
 }
 
 function isImage(fileName: string) {
@@ -112,7 +122,7 @@ export function getGalleryCategories(type: "events" | "projects"): Category[] {
         fileName.toLowerCase().startsWith("banner_")
       );
       const coverPhoto = banner
-        ? toPublicUrl(path.join(dir, banner))
+        ? toPublicUrl(path.join(dir, banner), true)
         : photos[0]?.src ?? "";
       const slug = slugify(entry.name);
 

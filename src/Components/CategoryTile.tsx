@@ -18,6 +18,7 @@ function CategoryTile({category, type}: {category: Category, type: "events" | "p
               src={category.coverPhoto}
               alt={category.title}
               fill
+              unoptimized
               sizes="100vw"
               className="object-cover"
               onLoadingComplete={() => setLoadedBaner(true)}

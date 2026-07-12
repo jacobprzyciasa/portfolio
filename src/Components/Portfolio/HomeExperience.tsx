@@ -102,7 +102,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
           style={{ opacity: Math.max(0, 1 - scrollY / 760) }}
         >
           <div className="flex justify-center font-body text-[10px] uppercase tracking-mega text-khaki">
-            <span className="hidden sm:block">Kraków / Worldwide</span>
+            <span className="hidden sm:block">Poland / Worldwide</span>
           </div>
 
           <div className="portfolio-hero-copy">
