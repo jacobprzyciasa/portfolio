@@ -2,14 +2,10 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import PhotoOverview from "@/Components/PhotoOverview";
 import ScrollToTop from "@/Components/ScrollToTop";
-import { getGalleryCategories, getGalleryCategory } from "@/utils/gallery";
+import { getGalleryCategory } from "@/utils/gallery";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return getGalleryCategories("events").map((category) => ({
-    slug: category.slug,
-  }));
-}
+export const dynamic = "force-dynamic";
 
 async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

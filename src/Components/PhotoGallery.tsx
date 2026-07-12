@@ -12,7 +12,7 @@ export default function PhotoGallery({
   setSlideShow?: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedPhotoId?: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  const [loadedPhotos, setLoadedPhotos] = useState<Set<number>>(new Set());
+  const [loadedPhotos, setLoadedPhotos] = useState<Set<string>>(new Set());
   const [imageDelays, setImageDelays] = useState<Record<number, number>>({});
 
   useEffect(() => {
@@ -23,8 +23,8 @@ export default function PhotoGallery({
     setImageDelays(delays);
   }, [photoSet]);
 
-  const handleImageLoad = (id: number) => {
-    setLoadedPhotos((prev) => new Set(prev).add(id));
+  const handleImageLoad = (src: string) => {
+    setLoadedPhotos((prev) => new Set(prev).add(src));
   };
 
   return (
@@ -32,7 +32,7 @@ export default function PhotoGallery({
       <div className="grid grid-cols-1 gap-2 px-2 min-[470px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
         {photoSet.map((photo, index) => (
           <div
-            key={photo.id}
+            key={photo.src}
             className="portfolio-gallery-card group relative aspect-3/4 cursor-pointer overflow-hidden bg-secondary"
             style={{ animationDelay: `${(index % 8) * 45}ms` }}
           >
@@ -47,11 +47,12 @@ export default function PhotoGallery({
                   src={photo.src}
                   alt={photo.alt}
                   fill
+                  unoptimized
                   className={`object-cover grayscale-[20%] brightness-90 transition-all duration-700 ease-in group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 ${
-                    loadedPhotos.has(photo.id) ? 'opacity-100' : 'opacity-0'
+                    loadedPhotos.has(photo.src) ? 'opacity-100' : 'opacity-0'
                   }`}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  onLoadingComplete={() => handleImageLoad(photo.id)}
+                  onLoadingComplete={() => handleImageLoad(photo.src)}
                   style={{ transitionDelay: `${imageDelays[photo.id] || 0}ms` }}
                 />
                 <span className="absolute right-3 top-3 font-body text-[9px] uppercase tracking-mega text-linen/50">
@@ -69,11 +70,12 @@ export default function PhotoGallery({
                   src={photo.src}
                   alt={photo.alt}
                   fill
+                  unoptimized
                   className={`object-cover grayscale-[20%] brightness-90 transition-all duration-700 ease-in group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 ${
-                    loadedPhotos.has(photo.id) ? 'opacity-100' : 'opacity-0'
+                    loadedPhotos.has(photo.src) ? 'opacity-100' : 'opacity-0'
                   }`}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  onLoadingComplete={() => handleImageLoad(photo.id)}
+                  onLoadingComplete={() => handleImageLoad(photo.src)}
                   style={{ transitionDelay: `${imageDelays[photo.id] || 0}ms` }}
                 />
                 <span className="absolute right-3 top-3 font-body text-[9px] uppercase tracking-mega text-linen/50">

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react';
 import type { Category } from '@/utils/gallery'
 
-function CategoryTile({category, type}: {category: Category, type: "events" | "clients"}) {
+function CategoryTile({category, type}: {category: Category, type: "events" | "projects"}) {
     const [loadedBaner, setLoadedBaner] = useState(false);
     const buttonLabel = type === "events" ? "See The Show" : "See Case Study";
 
@@ -27,7 +27,7 @@ function CategoryTile({category, type}: {category: Category, type: "events" | "c
 
       <div className='absolute bottom-0 right-0 w-full p-5 sm:p-10'>
           <p className="mb-3 font-body text-[10px] uppercase tracking-mega text-flare">
-            {type === "events" ? "/ Event" : "/ Client"}
+            {type === "events" ? "/ Event" : "/ Project"}
           </p>
           <h2 className="mb-10 w-full text-left font-heading text-5xl uppercase leading-none text-linen sm:text-7xl">{category.title}</h2>
           <div className='w-full flex justify-end'>

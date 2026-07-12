@@ -98,7 +98,7 @@ export function getMainPagePhotos(): Photo[] {
   }));
 }
 
-export function getGalleryCategories(type: "events" | "clients"): Category[] {
+export function getGalleryCategories(type: "events" | "projects"): Category[] {
   const baseDir = path.join(PUBLIC_DIR, type);
 
   return readDirectory(baseDir)
@@ -128,6 +128,6 @@ export function getGalleryCategories(type: "events" | "clients"): Category[] {
     .sort((a, b) => naturalCompare(a.title, b.title));
 }
 
-export function getGalleryCategory(type: "events" | "clients", slug: string) {
+export function getGalleryCategory(type: "events" | "projects", slug: string) {
   return getGalleryCategories(type).find((category) => category.slug === slug);
 }

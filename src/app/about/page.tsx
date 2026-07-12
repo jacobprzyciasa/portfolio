@@ -1,7 +1,7 @@
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Image from "next/image";
-import baner_me from "../../../public/baner_me.jpg";
+import baner_me from "../../../public/me.jpg";
 
 function Page() {
   return (

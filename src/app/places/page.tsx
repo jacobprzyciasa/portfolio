@@ -4,6 +4,8 @@ import PhotoOverview from '@/Components/PhotoOverview'
 import { getPhotosFromFolder } from '@/utils/gallery'
 import React from 'react'
 
+export const dynamic = "force-dynamic";
+
 function page() {
   return (
     <div className='min-h-screen bg-obsidian pt-32 text-linen md:pt-40'>

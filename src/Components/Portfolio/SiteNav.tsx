@@ -12,7 +12,7 @@ const LINKS = [
   { label: "Events", href: "/events", image: "/events/FD_Studio/banner_1.jpg" },
   { label: "Cars", href: "/cars", image: "/cars/1.jpg" },
   { label: "Places", href: "/places", image: "/places/1.jpg" },
-  { label: "Clients", href: "/clients", image: "/clients/Autodrom_Sosnowiec/banner_1.jpg" },
+  { label: "Projects", href: "/projects", image: "/projects/Autodrom_Sosnowiec/banner_1.jpg" },
   { label: "Contact", href: "/connect", image: "/me.jpg" },
 ];
 

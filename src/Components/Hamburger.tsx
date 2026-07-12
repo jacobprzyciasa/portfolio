@@ -82,7 +82,7 @@ function HamburgerMenu({ isScrolled }: HamburgerMenuProps) {
               isScrolled ? "hover:text-[#00000050]" : "hover:text-[#FFFFFF50]"
             } transition-all`}
           >
-            <a href="/clients">clients</a>
+            <a href="/projects">projects</a>
           </li>
           <li
             className={`cursor-pointer ${

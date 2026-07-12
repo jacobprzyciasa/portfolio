@@ -28,8 +28,8 @@ function getCategoryLabel(photo: Photo) {
     return "Events";
   }
 
-  if (photo.category.startsWith("/clients")) {
-    return "Clients";
+  if (photo.category.startsWith("/projects")) {
+    return "Projects";
   }
 
   return CATEGORY_LABELS[photo.category] ?? "Archive";
@@ -252,7 +252,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
               {[
                 ["6+", "Years behind the lens"],
                 ["50+", "Delivered stories"],
-                ["Every", "Happy clients"],
+                ["Every", "Happy projects"],
                 ["∞", "Frames captured"],
               ].map(([value, label]) => (
                 <div key={label} className="portfolio-stat">

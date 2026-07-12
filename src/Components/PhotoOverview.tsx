@@ -117,6 +117,7 @@ function PhotoOverview({ photosArray }: { photosArray: Photo[] }) {
                 src={selectedPhoto.src}
                 alt={selectedPhoto.alt}
                 fill
+                unoptimized
                 sizes="100vw"
                 className={`object-contain
                             animate-fade-slide-${direction}
