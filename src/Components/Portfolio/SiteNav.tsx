@@ -7,11 +7,11 @@ import { useState } from "react";
 import logo_linen from "../../../public/jp_linen.png"
 
 const LINKS = [
-  { label: "Work", href: "/#gallery", image: "/home/3.jpg" },
+  { label: "Work", href: "/#gallery", image: "/baner.jpg" },
   { label: "People", href: "/people", image: "/people/1.jpg" },
   { label: "Events", href: "/events", image: "/events/FD_Studio/banner_1.jpg" },
-  { label: "Cars", href: "/cars", image: "/cars/1.jpg" },
-  { label: "Places", href: "/places", image: "/places/1.jpg" },
+  { label: "Cars", href: "/cars", image: "/cars/4.jpg" },
+  { label: "Places", href: "/places", image: "/places/25.jpg" },
   { label: "Projects", href: "/projects", image: "/projects/Autodrom_Sosnowiec/banner_1.jpg" },
   { label: "Contact", href: "/connect", image: "/me.jpg" },
 ];
