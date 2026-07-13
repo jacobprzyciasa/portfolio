@@ -10,8 +10,7 @@ import CustomCursor from "./CustomCursor";
 import Marquee from "./Marquee";
 import ShutterReveal from "./ShutterReveal";
 import SiteNav from "./SiteNav";
-import me from "../../../public/me.jpg"
-import hero from "../../../public/baner.jpg"
+import { siteImages } from "@/config/media";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "/people": "People",
@@ -72,8 +71,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
     [filter, photos]
   );
 
-  const heroImage = hero ?? "/baner.jpg";
-  const aboutImage = me ?? "/me.jpg";
+  const heroImage = siteImages.hero;
+  const aboutImage = siteImages.portrait;
 
   return (
     <main id="top" className="portfolio-shell grain min-h-screen bg-obsidian text-linen">

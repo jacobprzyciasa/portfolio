@@ -1,6 +1,11 @@
-import fs from "node:fs";
-import path from "node:path";
-
+import {
+  archiveSections,
+  assetPath,
+  eventSections,
+  type ManagedSection,
+  photosFromSection,
+  projectSections,
+} from "@/config/media";
 import { Photo } from "./photos";
 
 export interface Category {
@@ -11,76 +16,42 @@ export interface Category {
   slug: string;
 }
 
-const PUBLIC_DIR = path.join(process.cwd(), "public");
-const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
-
-function toPublicUrl(filePath: string, versioned = false) {
-  const publicUrl = `/${path.relative(PUBLIC_DIR, filePath).split(path.sep).join("/")}`;
-
-  if (!versioned) {
-    return publicUrl;
-  }
-
-  try {
-    return `${publicUrl}?v=${Math.trunc(fs.statSync(filePath).mtimeMs)}`;
-  } catch {
-    return publicUrl;
-  }
-}
-
-function isImage(fileName: string) {
-  return IMAGE_EXTENSIONS.has(path.extname(fileName).toLowerCase());
-}
+const SECTION_BY_FOLDER = Object.values(archiveSections).reduce<Record<string, ManagedSection>>(
+  (sections, section) => ({
+    ...sections,
+    [section.folder]: section,
+  }),
+  {}
+);
 
 function naturalCompare(a: string, b: string) {
   return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
 }
 
-function slugify(value: string) {
-  return value
-    .replace(/[łŁ]/g, "l")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/_/g, "-")
-    .replace(/[^a-z0-9-]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-}
+function toCategory(type: "events" | "projects", section: ManagedSection): Category {
+  const slug = section.slug ?? section.folder.split("/").at(-1) ?? section.title;
 
-function titleFromFolder(folderName: string) {
-  return folderName.replace(/_/g, " ");
-}
-
-function readDirectory(dir: string) {
-  if (!fs.existsSync(dir)) {
-    return [];
-  }
-
-  return fs.readdirSync(dir, { withFileTypes: true });
-}
-
-function readImageFiles(dir: string) {
-  return readDirectory(dir)
-    .filter((entry) => entry.isFile() && isImage(entry.name))
-    .map((entry) => entry.name)
-    .sort(naturalCompare);
+  return {
+    title: section.title,
+    url: `/${type}/${slug}`,
+    photoSet: photosFromSection(section),
+    coverPhoto: assetPath(`${section.folder}/${section.banner}`),
+    slug,
+  };
 }
 
 export function getPhotosFromFolder(folder: string, alt = "Photo"): Photo[] {
-  const dir = path.join(PUBLIC_DIR, folder);
+  const section = SECTION_BY_FOLDER[folder];
 
-  return readImageFiles(dir)
-    .filter((fileName) => !fileName.toLowerCase().startsWith("banner_"))
-    .map((fileName, index) => ({
-      id: index + 1,
-      src: toPublicUrl(path.join(dir, fileName)),
-      alt,
-    }));
+  if (!section) {
+    return [];
+  }
+
+  return photosFromSection({ ...section, alt });
 }
 
 export function getMainPagePhotos(): Photo[] {
-  const photos = getPhotosFromFolder("home", "Portfolio photo");
+  const photos = photosFromSection(archiveSections.home);
   const categoryById: Record<number, string> = {
     1: "/people",
     2: "/events/fd-studio",
@@ -109,33 +80,9 @@ export function getMainPagePhotos(): Photo[] {
 }
 
 export function getGalleryCategories(type: "events" | "projects"): Category[] {
-  const baseDir = path.join(PUBLIC_DIR, type);
+  const sections = type === "events" ? eventSections : projectSections;
 
-  return readDirectory(baseDir)
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => {
-      const folder = `${type}/${entry.name}`;
-      const dir = path.join(PUBLIC_DIR, folder);
-      const title = titleFromFolder(entry.name);
-      const photos = getPhotosFromFolder(folder, title);
-      const banner = readImageFiles(dir).find((fileName) =>
-        fileName.toLowerCase().startsWith("banner_")
-      );
-      const coverPhoto = banner
-        ? toPublicUrl(path.join(dir, banner), true)
-        : photos[0]?.src ?? "";
-      const slug = slugify(entry.name);
-
-      return {
-        title,
-        url: `/${type}/${slug}`,
-        photoSet: photos,
-        coverPhoto,
-        slug,
-      };
-    })
-    .filter((category) => category.coverPhoto && category.photoSet.length > 0)
-    .sort((a, b) => naturalCompare(a.title, b.title));
+  return sections.map((section) => toCategory(type, section)).sort((a, b) => naturalCompare(a.title, b.title));
 }
 
 export function getGalleryCategory(type: "events" | "projects", slug: string) {

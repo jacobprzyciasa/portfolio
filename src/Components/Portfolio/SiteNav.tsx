@@ -4,16 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useState } from "react";
-import logo_linen from "../../../public/jp_linen.png"
+import { navImages } from "@/config/media";
+import logoLinen from "../../../public/jp_linen.png";
 
 const LINKS = [
-  { label: "Work", href: "/#gallery", image: "/baner.jpg" },
-  { label: "People", href: "/people", image: "/people/1.jpg" },
-  { label: "Events", href: "/events", image: "/events/FD_Studio/banner_1.jpg" },
-  { label: "Cars", href: "/cars", image: "/cars/4.jpg" },
-  { label: "Places", href: "/places", image: "/places/25.jpg" },
-  { label: "Projects", href: "/projects", image: "/projects/Autodrom_Sosnowiec/banner_1.jpg" },
-  { label: "Contact", href: "/connect", image: "/me.jpg" },
+  { label: "Work", href: "/#gallery", image: navImages.work },
+  { label: "People", href: "/people", image: navImages.people },
+  { label: "Events", href: "/events", image: navImages.events },
+  { label: "Cars", href: "/cars", image: navImages.cars },
+  { label: "Places", href: "/places", image: navImages.places },
+  { label: "Projects", href: "/projects", image: navImages.projects },
+  { label: "Contact", href: "/connect", image: navImages.contact },
 ];
 
 export default function SiteNav({ solid = false }: { solid?: boolean }) {
@@ -29,7 +30,7 @@ export default function SiteNav({ solid = false }: { solid?: boolean }) {
       >
         <Link href="/" className="font-heading text-xl uppercase tracking-mega text-linen">
           <Image
-            src={logo_linen}
+            src={logoLinen}
             alt="Logo"
             className="w-10"
           />

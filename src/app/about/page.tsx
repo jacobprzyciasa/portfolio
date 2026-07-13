@@ -1,7 +1,7 @@
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
+import { siteImages } from "@/config/media";
 import Image from "next/image";
-import baner_me from "../../../public/me.jpg";
 
 function Page() {
   return (
@@ -19,7 +19,7 @@ function Page() {
         </div>
         <div className="relative min-h-[520px] overflow-hidden md:col-span-5">
           <Image
-            src={baner_me}
+            src={siteImages.portrait}
             alt="Jacob Przyciasa"
             fill
             sizes="(max-width: 768px) 100vw, 40vw"
