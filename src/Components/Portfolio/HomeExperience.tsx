@@ -198,8 +198,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
                     alt={photo.alt}
                     fill
                     loading={index === 0 ? "eager" : "lazy"}
-                    unoptimized
-                    sizes="(max-width: 768px) 50vw, 60vw"
+                    quality={78}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 58vw"
                     className="object-cover grayscale-[25%] brightness-90 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -230,6 +230,8 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
                 alt="Portrait from Jakub Przyciasa portfolio"
                 width={900}
                 height={1125}
+                quality={82}
+                sizes="(max-width: 768px) 100vw, 38vw"
                 className="aspect-[4/5] w-full object-cover grayscale-[20%]"
               />
               <div className="absolute bottom-0 left-0 right-0 flex justify-between bg-gradient-to-t from-obsidian to-transparent p-4 pt-12 font-body text-[9px] uppercase tracking-mega text-khaki">

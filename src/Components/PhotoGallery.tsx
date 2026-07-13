@@ -47,7 +47,7 @@ export default function PhotoGallery({
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  unoptimized
+                  quality={76}
                   className={`object-cover grayscale-[20%] brightness-90 transition-all duration-700 ease-in group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 ${
                     loadedPhotos.has(photo.src) ? 'opacity-100' : 'opacity-0'
                   }`}
@@ -70,7 +70,7 @@ export default function PhotoGallery({
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  unoptimized
+                  quality={76}
                   className={`object-cover grayscale-[20%] brightness-90 transition-all duration-700 ease-in group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 ${
                     loadedPhotos.has(photo.src) ? 'opacity-100' : 'opacity-0'
                   }`}
