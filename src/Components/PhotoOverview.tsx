@@ -75,7 +75,7 @@ function PhotoOverview({ photosArray }: { photosArray: Photo[] }) {
     <>
       {slideShow && (
         <div
-          className="fixed left-0 top-0 z-[9500] flex h-screen w-full items-center justify-center bg-obsidian/95 pt-10 pb-14 backdrop-blur-md"
+          className="fixed left-0 top-0 z-9500 flex h-screen w-full items-center justify-center bg-obsidian/95 pt-10 pb-14 backdrop-blur-md"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

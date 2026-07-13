@@ -23,7 +23,7 @@ export default function SiteNav({ solid = false }: { solid?: boolean }) {
   return (
     <>
       <nav
-        className={`fixed left-0 top-0 z-[8000] flex w-full items-center justify-between p-5 transition-colors duration-300 md:p-8 ${
+        className={`fixed left-0 top-0 z-8000 flex w-full items-center justify-between p-5 transition-colors duration-300 md:p-8 ${
           solid ? "bg-obsidian/85 backdrop-blur-md" : "bg-transparent"
         }`}
       >
@@ -48,7 +48,7 @@ export default function SiteNav({ solid = false }: { solid?: boolean }) {
       </nav>
 
       {open && (
-        <div className="portfolio-menu fixed inset-0 z-[9500] bg-obsidian">
+        <div className="portfolio-menu fixed inset-0 z-9500 bg-obsidian">
           <Image
             key={hovered.label}
             src={hovered.image}

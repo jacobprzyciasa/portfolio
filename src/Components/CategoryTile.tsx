@@ -23,7 +23,7 @@ function CategoryTile({category, type}: {category: Category, type: "events" | "p
               className="object-cover"
               onLoadingComplete={() => setLoadedBaner(true)}
             />
-            <div className='absolute left-0 top-0 h-full w-full bg-gradient-to-t from-obsidian via-obsidian/25 to-transparent'></div>
+            <div className='absolute left-0 top-0 h-full w-full bg-linear-to-t from-obsidian via-obsidian/25 to-transparent'></div>
         </div>
 
       <div className='absolute bottom-0 right-0 w-full p-5 sm:p-10'>
