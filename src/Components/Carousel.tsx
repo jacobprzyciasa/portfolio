@@ -1,12 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import autodrom from "../../public/Categories/AutodromSosnowiecLogo.png";
-import wynajmijstudio from "../../public/Categories/WynajmijStudioLogo.png";
-import fdstudio from "../../public/Categories/FdStudio.png";
-import starway from "../../public/Categories/starway.png";
+import { clientLogos } from "@/config/media";
 
-const images = [autodrom, wynajmijstudio, fdstudio, starway];
+const images = clientLogos;
 
 export default function InfiniteCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -67,6 +64,7 @@ export default function InfiniteCarousel() {
               src={src}
               alt={`Carousel image ${i + 1}`}
               fill
+              sizes="256px"
               className={`object-contain w-full brightness-100 ${i == 1 && ' '}`}
             />
           </div>
