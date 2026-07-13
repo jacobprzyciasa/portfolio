@@ -4,8 +4,6 @@ import PhotosCategories from "@/Components/PhotosCategories";
 import InfiniteCarousel from "@/Components/Carousel";
 import { getGalleryCategories } from "@/utils/gallery";
 
-export const dynamic = "force-dynamic";
-
 function Page() {
   return (
     <div className="min-h-screen bg-obsidian pt-32 text-linen md:pt-40">

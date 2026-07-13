@@ -3,8 +3,6 @@ import Header from "@/Components/Header";
 import PhotoOverview from "@/Components/PhotoOverview";
 import { getPhotosFromFolder } from "@/utils/gallery";
 
-export const dynamic = "force-dynamic";
-
 function Page() {
   return (
     <div className="min-h-screen bg-obsidian pt-32 text-linen md:pt-40">
