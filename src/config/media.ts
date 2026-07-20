@@ -51,8 +51,8 @@ export const archiveSections = {
   cars: {
     title: "Cars",
     folder: "cars",
-    banner: "4.jpg",
-    photoCount: 24,
+    banner: "1.jpg",
+    photoCount: 40,
     alt: "Car photo",
   },
   places: {
