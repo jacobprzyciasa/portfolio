@@ -4,5 +4,5 @@ import Image from "next/image";
 import jp from "../../public/jp_linen.png"
 
 export default function Home() {
-  return <HomeClient photos={getMainPagePhotos()} />;
+  return <HomeClient photos={getMainPagePhotos()} /> ;
 }
