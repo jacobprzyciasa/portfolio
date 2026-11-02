@@ -96,6 +96,30 @@ export const eventSections = [
     banner: "banner_1.jpg",
     photoCount: 28,
     alt: "Miłosz Skierski concert photo",
+  },//
+  {
+    title: "Miłosz Skierski eksperyment Tour",
+    folder: "events/Miłosz_Skierski_eksperyment_tour",
+    slug: "milosz-skierski-eksperyment-tour",
+    banner: "banner_1.jpg",
+    photoCount: 28,
+    alt: "Miłosz Skierski concert photo",
+  },
+  {
+    title: "Gombao33 Tour",
+    folder: "events/Gombao33_tour",
+    slug: "gombao33-tour",
+    banner: "banner_1.jpg",
+    photoCount: 28,
+    alt: "Gombao33 concert photo",
+  },
+  {
+    title: "Bailla Party x Per Dżinn",
+    folder: "events/Bailla_Party_x_Per_Dzinn",
+    slug: "bailla-party-x-per-dzinn",
+    banner: "banner_1.jpg",
+    photoCount: 28,
+    alt: "Per Dżinn concert photo",
   },
 ] satisfies ManagedSection[];
 
