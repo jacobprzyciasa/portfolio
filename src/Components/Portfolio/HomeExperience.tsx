@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Mail } from "lucide-react";
+// KONTAKT WYŁĄCZONY (tymczasowo) — ikony używane tylko w sekcji kontaktu poniżej
+// import { ArrowUpRight, Mail } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import type { Photo } from "@/utils/photos";
@@ -268,6 +269,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
         </div>
       </section>
 
+      {/* KONTAKT WYŁĄCZONY (tymczasowo) — odkomentuj, aby przywrócić sekcję kontaktu z linkiem do /connect
       <section id="contact" className="relative overflow-hidden bg-obsidian py-24 md:py-40">
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <span className="font-heading uppercase leading-none text-linen/[0.03] text-[clamp(8rem,30vw,30rem)]">
@@ -305,6 +307,7 @@ export default function HomeExperience({ photos }: { photos: Photo[] }) {
           </Link>
         </div>
       </section>
+      */}
     </main>
   );
 }

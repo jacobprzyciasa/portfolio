@@ -91,6 +91,7 @@ function HamburgerMenu({ isScrolled }: HamburgerMenuProps) {
           >
             <a href="/about">about</a>
           </li>
+          {/* KONTAKT WYŁĄCZONY (tymczasowo) — odkomentuj, aby przywrócić link do /connect
           <li
             className={`cursor-pointer ${
               isScrolled ? "hover:text-[#00000050]" : "hover:text-[#FFFFFF50]"
@@ -98,6 +99,7 @@ function HamburgerMenu({ isScrolled }: HamburgerMenuProps) {
           >
             <a href="/connect">connect</a>
           </li>
+          */}
         </ul>
       </div>
     </div>

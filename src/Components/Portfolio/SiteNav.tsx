@@ -14,7 +14,8 @@ const LINKS = [
   { label: "Cars", href: "/cars", image: navImages.cars },
   { label: "Places", href: "/places", image: navImages.places },
   { label: "Projects", href: "/projects", image: navImages.projects },
-  { label: "Contact", href: "/connect", image: navImages.contact },
+  // KONTAKT WYŁĄCZONY (tymczasowo) — odkomentuj, aby przywrócić link do /connect
+  // { label: "Contact", href: "/connect", image: navImages.contact },
 ];
 
 export default function SiteNav({ solid = false }: { solid?: boolean }) {
